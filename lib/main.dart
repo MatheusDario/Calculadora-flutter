@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-//TODO - 1: Adicione uma tela em branco (Scaffold) e defina a cor de fundo para 'balck12, ou seja criativo e escolha sua própria cor'
-
-//TODO - 2: Crie uma appBar para o aplicativo, como título: 'Calculadora', cor de fundo: 'black, ou seja criativo e escolha sua própria cor'
-
-//TODO - 3: Crie um corpo para o app Utilizando o Widget Column. Dentro dessa coluna inclua um container que temporariamente servirá como nosso display. Altere a propriedade color desse container para: 'white', dê um espaçamento nas margens de: '15'. O width deve ser: '400' e o height: '120'. Exiba o texto 'visor' no centro do container, o tamanho da fonte deve ser: '50'.
-
-//TODO - 4: Crie um novo Container, que receberá um column, que por sua vez receberá vários rows, que por sua vez receberão vários raisedbuttons para criar os botões da nossa calculadora. A calculadora deve ficar com o visual similar ao da imagem apresentada em: https://drive.google.com/file/d/1fuKl3cdlr1J-PsLLmKtStvgeHiaeahO6/view?usp=sharing. Dicas: pesquisem no flutter.dev pelas classes/widgets: 'Expanded' e 'RaisedButton'; As cores podem ser diferentes para os botões, fica a seu critério, porém, a estrutura dos botões deve ser a mesma apresentada na imagem.
-
 void main() {
   runApp(const MyApp());
 }
@@ -15,13 +7,266 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      //debugShowCheckedModeBanner: false,
       title: 'Calculadora',
-      home: Scaffold(
-        backgroundColor: Colors.black12,
+      home: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.black12,
+          //Titulo
+          appBar: AppBar(
+            title: const Text(
+              'Calculadora',
+              style: TextStyle(letterSpacing: 1.0, fontSize: 25.0),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.black12,
+          ),
+          body: Column(
+            children: [
+              //visor
+              Container(
+                color: Colors.white,
+                margin: EdgeInsets.all(15.0),
+                width: 400.0,
+                height: 120.0,
+                alignment: Alignment.center,
+                child: Text('Visor',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.black, fontSize: 50.0)),
+              ),
+              //botões, layout incompleto
+              Container(
+                //margin: EdgeInsets.all(15.0),
+                child: Expanded(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.black, // Background color
+                                      onPrimary: Colors.blue, // Text Color (Foreground color)
+                                    ),
+                                onPressed: () {},
+                                child:
+                                    Text('C', style: TextStyle(fontSize: 28.0)),
+                              )),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('DEL',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('%',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('/',
+                                          style: TextStyle(fontSize: 28.0)))),
+                            ]),
+                      ),
+                      Expanded(
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                  child: ElevatedButton(
+                                style: const ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll<Color>(
+                                          Colors.black),
+                                ),
+                                onPressed: () {},
+                                child:
+                                    Text('7', style: TextStyle(fontSize: 28.0)),
+                              )),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: const ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll<Color>(
+                                                Colors.black),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('8',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: const ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll<Color>(
+                                                Colors.black),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('9',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('*',
+                                          style: TextStyle(fontSize: 28.0)))),
+                            ]),
+                      ),
+                      Expanded(
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                  child: ElevatedButton(
+                                style: const ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll<Color>(
+                                          Colors.black),
+                                ),
+                                onPressed: () {},
+                                child:
+                                    Text('4', style: TextStyle(fontSize: 28.0)),
+                              )),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: const ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll<Color>(
+                                                Colors.black),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('5',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: const ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll<Color>(
+                                                Colors.black),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('6',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('+',
+                                          style: TextStyle(fontSize: 28.0)))),
+                            ]),
+                      ),
+                      Expanded(
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                  child: ElevatedButton(
+                                style: const ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll<Color>(
+                                          Colors.black),
+                                ),
+                                onPressed: () {},
+                                child:
+                                    Text('1', style: TextStyle(fontSize: 28.0)),
+                              )),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: const ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll<Color>(
+                                                Colors.black),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('2',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: const ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll<Color>(
+                                                Colors.black),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('3',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('-',
+                                          style: TextStyle(fontSize: 28.0)))),
+                            ]),
+                      ),
+                      Expanded(
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                  child: ElevatedButton(
+                                style: const ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll<Color>(
+                                          Colors.black),
+                                ),
+                                onPressed: () {},
+                                child:
+                                    Text('0', style: TextStyle(fontSize: 28.0)),
+                              )),
+                              Expanded(
+                                flex: 2,
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('.',
+                                          style: TextStyle(fontSize: 28.0)))),
+                              Expanded(
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.black, // Background color
+                                        onPrimary: Colors.blue, // Text Color (Foreground color)
+                                      ),
+                                      onPressed: () {},
+                                      child: Text('=',
+                                          style: TextStyle(fontSize: 28.0)))),
+                            ]),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
