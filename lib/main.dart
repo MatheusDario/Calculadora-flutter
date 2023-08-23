@@ -47,6 +47,33 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
     });
   }
 
+  Expanded criarBtnsCalcular({required String funcao, required String btn}) {
+    return  Expanded(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.black, // Background color
+            onPrimary: Colors.blue, // Text Color (Foreground color)
+          ),
+          onPressed: () {mostrarNoVisor(funcao);},
+          child:
+          Text(btn, style: TextStyle(fontSize: 28.0),),
+        ));
+  }
+
+  Expanded criarBtnsNums({required String funcao, required String numBtn}) {
+    return  Expanded(
+        child: ElevatedButton(
+          style: const ButtonStyle(
+            backgroundColor:
+            MaterialStatePropertyAll<Color>(
+                Colors.black),
+          ),
+          onPressed: () { mostrarNoVisor(funcao);},
+          child:
+          Text(numBtn, style: TextStyle(fontSize: 28.0)),
+        ));
+}
+
   @override
   Widget build(BuildContext context) {
     return  Column(
@@ -72,217 +99,49 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Expanded(
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.black, // Background color
-                                onPrimary: Colors.blue, // Text Color (Foreground color)
-                              ),
-                              onPressed: () {mostrarNoVisor('Apagar');},
-                              child:
-                              Text('C', style: TextStyle(fontSize: 28.0)),
-                            )),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('DEL');},
-                                child: Text('DEL',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('%');},
-                                child: Text('%',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () { mostrarNoVisor('/');},
-                                child: Text('/',
-                                    style: TextStyle(fontSize: 28.0)))),
+                        criarBtnsCalcular(funcao: 'Apagar', btn: 'C'),
+                        criarBtnsCalcular(funcao: 'Limpar', btn: 'DEL'),
+                        criarBtnsCalcular(funcao: '%', btn: '%'),
+                        criarBtnsCalcular(funcao: '/', btn: '/'),
                       ]),
                 ),
                 Expanded(
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Expanded(
-                            child: ElevatedButton(
-                              style: const ButtonStyle(
-                                backgroundColor:
-                                MaterialStatePropertyAll<Color>(
-                                    Colors.black),
-                              ),
-                              onPressed: () { mostrarNoVisor('7');},
-                              child:
-                              Text('7', style: TextStyle(fontSize: 28.0)),
-                            )),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: const ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStatePropertyAll<Color>(
-                                      Colors.black),
-                                ),
-                                onPressed: () {mostrarNoVisor('8');},
-                                child: Text('8',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: const ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStatePropertyAll<Color>(
-                                      Colors.black),
-                                ),
-                                onPressed: () {mostrarNoVisor('9');},
-                                child: Text('9',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('*');},
-                                child: Text('*',
-                                    style: TextStyle(fontSize: 28.0)))),
+                        criarBtnsNums(funcao: '7', numBtn: '7'),
+                        criarBtnsNums(funcao: '8', numBtn: '8'),
+                        criarBtnsNums(funcao: '9', numBtn: '9'),
+                        criarBtnsCalcular(funcao: '*', btn: '*'),
                       ]),
                 ),
                 Expanded(
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Expanded(
-                            child: ElevatedButton(
-                              style: const ButtonStyle(
-                                backgroundColor:
-                                MaterialStatePropertyAll<Color>(
-                                    Colors.black),
-                              ),
-                              onPressed: () {mostrarNoVisor('4');},
-                              child:
-                              Text('4', style: TextStyle(fontSize: 28.0)),
-                            )),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: const ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStatePropertyAll<Color>(
-                                      Colors.black),
-                                ),
-                                onPressed: () {mostrarNoVisor('5');},
-                                child: Text('5',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: const ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStatePropertyAll<Color>(
-                                      Colors.black),
-                                ),
-                                onPressed: () {mostrarNoVisor('6');},
-                                child: Text('6',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('+');},
-                                child: Text('+',
-                                    style: TextStyle(fontSize: 28.0)))),
+                        criarBtnsNums(funcao: '4', numBtn: '4'),
+                        criarBtnsNums(funcao: '5', numBtn: '5'),
+                        criarBtnsNums(funcao: '6', numBtn: '6'),
+                        criarBtnsCalcular(funcao: '+', btn: '+'),
                       ]),
                 ),
                 Expanded(
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Expanded(
-                            child: ElevatedButton(
-                              style: const ButtonStyle(
-                                backgroundColor:
-                                MaterialStatePropertyAll<Color>(
-                                    Colors.black),
-                              ),
-                              onPressed: () {mostrarNoVisor('1');},
-                              child:
-                              Text('1', style: TextStyle(fontSize: 28.0)),
-                            )),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: const ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStatePropertyAll<Color>(
-                                      Colors.black),
-                                ),
-                                onPressed: () {mostrarNoVisor('2');},
-                                child: Text('2',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: const ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStatePropertyAll<Color>(
-                                      Colors.black),
-                                ),
-                                onPressed: () {mostrarNoVisor('3');},
-                                child: Text('3',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('-');},
-                                child: Text('-',
-                                    style: TextStyle(fontSize: 28.0)))),
+                        criarBtnsNums(funcao: '1', numBtn: '1'),
+                        criarBtnsNums(funcao: '2', numBtn: '2'),
+                        criarBtnsNums(funcao: '3', numBtn: '3'),
+                        criarBtnsCalcular(funcao: '-', btn: '-'),
                       ]),
                 ),
                 Expanded(
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Expanded(
-                            child: ElevatedButton(
-                              style: const ButtonStyle(
-                                backgroundColor:
-                                MaterialStatePropertyAll<Color>(
-                                    Colors.black),
-                              ),
-                              onPressed: () {mostrarNoVisor('0');},
-                              child:
-                              Text('0', style: TextStyle(fontSize: 28.0)),
-                            )),
-                        Expanded(
-                            flex: 2,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('.');},
-                                child: Text('.',
-                                    style: TextStyle(fontSize: 28.0)))),
-                        Expanded(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.black, // Background color
-                                  onPrimary: Colors.blue, // Text Color (Foreground color)
-                                ),
-                                onPressed: () {mostrarNoVisor('=');},
-                                child: Text('=',
-                                    style: TextStyle(fontSize: 28.0)))),
+                        criarBtnsNums(funcao: '0', numBtn: '0'),
+                        criarBtnsCalcular(funcao: '.', btn: '.'),
+                        criarBtnsCalcular(funcao: '=', btn: '='),
                       ]),
                 ),
               ],
