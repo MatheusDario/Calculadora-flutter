@@ -41,120 +41,11 @@ class LogicaCalculadora extends StatefulWidget {
 class _LogicaCalculadoraState extends State<LogicaCalculadora> {
   dynamic visor = 'Visor';
 
-  void mostrarApagarNoVisor() {
+  void mostrarNoVisor(String funcao) {
     setState(() {
-      visor = 'Apagar';
+      visor = funcao;
     });
   }
-  void mostrarDelNoVisor() {
-    setState(() {
-      visor = 'Deletar';
-    });
-  }
-
-  void mostrarPorcentagemNoVisor() {
-    setState(() {
-      visor = '%';
-    });
-  }
-
-  void mostrarDivisaoNoVisor() {
-    setState(() {
-      visor = 'Divisão';
-    });
-  }
-
-  void mostrarSeteNoVisor() {
-    setState(() {
-      visor = 7;
-    });
-  }
-
-  void mostrarOitoNoVisor() {
-    setState(() {
-      visor = 8;
-    });
-  }
-
-  void mostrarNoveNoVisor() {
-    setState(() {
-      visor = 9;
-    });
-  }
-
-  void mostrarMultiplicacaoNoVisor() {
-    setState(() {
-      visor = 'Multiplicação';
-    });
-  }
-
-  void mostrarQuatroNoVisor() {
-    setState(() {
-      visor = 4;
-    });
-  }
-
-  void mostrarCincoNoVisor() {
-    setState(() {
-      visor = 5;
-    });
-  }
-
-  void mostrarSeisNoVisor() {
-    setState(() {
-      visor = 6;
-    });
-  }
-
-  void mostrarSomaNoVisor() {
-    setState(() {
-      visor = '+';
-    });
-  }
-
-  void mostrarUmNoVisor() {
-    setState(() {
-      visor = 1;
-    });
-  }
-
-  void mostrarDoisNoVisor() {
-    setState(() {
-      visor = 2;
-    });
-  }
-
-  void mostrarTresNoVisor() {
-    setState(() {
-      visor = 3;
-    });
-  }
-
-  void mostrarSubtracaoNoVisor() {
-    setState(() {
-      visor = 'Subtração';
-    });
-  }
-
-  void mostrarZeroNoVisor() {
-    setState(() {
-      visor = 0;
-    });
-  }
-
-  void mostrarPontoNoVisor() {
-    setState(() {
-      visor = '.';
-    });
-  }
-
-  void mostrarResultadoNoVisor() {
-    setState(() {
-      visor = '=';
-    });
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +78,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                 primary: Colors.black, // Background color
                                 onPrimary: Colors.blue, // Text Color (Foreground color)
                               ),
-                              onPressed: () {mostrarApagarNoVisor();},
+                              onPressed: () {mostrarNoVisor('Apagar');},
                               child:
                               Text('C', style: TextStyle(fontSize: 28.0)),
                             )),
@@ -197,7 +88,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarDelNoVisor();},
+                                onPressed: () {mostrarNoVisor('DEL');},
                                 child: Text('DEL',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -206,7 +97,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarPorcentagemNoVisor();},
+                                onPressed: () {mostrarNoVisor('%');},
                                 child: Text('%',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -215,7 +106,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () { mostrarDivisaoNoVisor();},
+                                onPressed: () { mostrarNoVisor('/');},
                                 child: Text('/',
                                     style: TextStyle(fontSize: 28.0)))),
                       ]),
@@ -231,7 +122,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                 MaterialStatePropertyAll<Color>(
                                     Colors.black),
                               ),
-                              onPressed: () { mostrarSeteNoVisor();},
+                              onPressed: () { mostrarNoVisor('7');},
                               child:
                               Text('7', style: TextStyle(fontSize: 28.0)),
                             )),
@@ -242,7 +133,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   MaterialStatePropertyAll<Color>(
                                       Colors.black),
                                 ),
-                                onPressed: () {mostrarOitoNoVisor();},
+                                onPressed: () {mostrarNoVisor('8');},
                                 child: Text('8',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -252,7 +143,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   MaterialStatePropertyAll<Color>(
                                       Colors.black),
                                 ),
-                                onPressed: () {mostrarNoveNoVisor();},
+                                onPressed: () {mostrarNoVisor('9');},
                                 child: Text('9',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -261,7 +152,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarMultiplicacaoNoVisor();},
+                                onPressed: () {mostrarNoVisor('*');},
                                 child: Text('*',
                                     style: TextStyle(fontSize: 28.0)))),
                       ]),
@@ -277,7 +168,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                 MaterialStatePropertyAll<Color>(
                                     Colors.black),
                               ),
-                              onPressed: () {mostrarQuatroNoVisor();},
+                              onPressed: () {mostrarNoVisor('4');},
                               child:
                               Text('4', style: TextStyle(fontSize: 28.0)),
                             )),
@@ -288,7 +179,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   MaterialStatePropertyAll<Color>(
                                       Colors.black),
                                 ),
-                                onPressed: () {mostrarCincoNoVisor();},
+                                onPressed: () {mostrarNoVisor('5');},
                                 child: Text('5',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -298,7 +189,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   MaterialStatePropertyAll<Color>(
                                       Colors.black),
                                 ),
-                                onPressed: () {mostrarSeisNoVisor();},
+                                onPressed: () {mostrarNoVisor('6');},
                                 child: Text('6',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -307,7 +198,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarSomaNoVisor();},
+                                onPressed: () {mostrarNoVisor('+');},
                                 child: Text('+',
                                     style: TextStyle(fontSize: 28.0)))),
                       ]),
@@ -323,7 +214,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                 MaterialStatePropertyAll<Color>(
                                     Colors.black),
                               ),
-                              onPressed: () {mostrarUmNoVisor();},
+                              onPressed: () {mostrarNoVisor('1');},
                               child:
                               Text('1', style: TextStyle(fontSize: 28.0)),
                             )),
@@ -334,7 +225,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   MaterialStatePropertyAll<Color>(
                                       Colors.black),
                                 ),
-                                onPressed: () {mostrarDoisNoVisor();},
+                                onPressed: () {mostrarNoVisor('2');},
                                 child: Text('2',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -344,7 +235,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   MaterialStatePropertyAll<Color>(
                                       Colors.black),
                                 ),
-                                onPressed: () {mostrarTresNoVisor();},
+                                onPressed: () {mostrarNoVisor('3');},
                                 child: Text('3',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -353,7 +244,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarSubtracaoNoVisor();},
+                                onPressed: () {mostrarNoVisor('-');},
                                 child: Text('-',
                                     style: TextStyle(fontSize: 28.0)))),
                       ]),
@@ -369,7 +260,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                 MaterialStatePropertyAll<Color>(
                                     Colors.black),
                               ),
-                              onPressed: () {mostrarZeroNoVisor();},
+                              onPressed: () {mostrarNoVisor('0');},
                               child:
                               Text('0', style: TextStyle(fontSize: 28.0)),
                             )),
@@ -380,7 +271,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarPontoNoVisor();},
+                                onPressed: () {mostrarNoVisor('.');},
                                 child: Text('.',
                                     style: TextStyle(fontSize: 28.0)))),
                         Expanded(
@@ -389,7 +280,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                                   primary: Colors.black, // Background color
                                   onPrimary: Colors.blue, // Text Color (Foreground color)
                                 ),
-                                onPressed: () {mostrarResultadoNoVisor();},
+                                onPressed: () {mostrarNoVisor('=');},
                                 child: Text('=',
                                     style: TextStyle(fontSize: 28.0)))),
                       ]),
