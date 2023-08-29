@@ -40,6 +40,7 @@ class LogicaCalculadora extends StatefulWidget {
 class _LogicaCalculadoraState extends State<LogicaCalculadora> {
   String visor = '0';
 
+
   void mostrarNoVisor(String funcao) {
     setState(() {
       if(visor == '0') {
@@ -55,6 +56,32 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
     setState(() {
       visor = '0';
     });
+  }
+
+  void realizaCalculo() {
+    visor = visor.replaceAll('÷', '/');
+
+    Parser p = Parser();
+    Expression expression = p.parse(visor);
+    ContextModel cm = new ContextModel();
+    double resolucaoDaExpressao = expression.evaluate(EvaluationType.REAL, cm);
+
+    setState(() {
+      visor = resolucaoDaExpressao.toString();
+    });
+  }
+
+  Expanded criarBtnMostrarResultado({required String btn}) {
+    return  Expanded(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.black, // Background color
+            onPrimary: Colors.blue, // Text Color (Foreground color)
+          ),
+          onPressed: () {realizaCalculo();},
+          child:
+          Text(btn, style: TextStyle(fontSize: 28.0),),
+        ));
   }
 
   Expanded criarBtnsApagar({required String btn}) {
@@ -165,7 +192,7 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                       children: [
                         criarBtnsNums(funcao: '0', numBtn: '0'),
                         criarBtnsCalcular(funcao: '.', btn: '.'),
-                        criarBtnsCalcular(funcao: '=', btn: '='),
+                        criarBtnMostrarResultado(btn: '='),
                       ]),
                 ),
               ],
