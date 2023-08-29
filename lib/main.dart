@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -39,13 +38,38 @@ class LogicaCalculadora extends StatefulWidget {
 }
 
 class _LogicaCalculadoraState extends State<LogicaCalculadora> {
-  dynamic visor = 'Visor';
+  String visor = '0';
 
   void mostrarNoVisor(String funcao) {
     setState(() {
-      visor = funcao;
+      if(visor == '0') {
+        visor = funcao;
+      }
+      else {
+        visor += funcao;
+      }
     });
   }
+
+  void resetar() {
+    setState(() {
+      visor = '0';
+    });
+  }
+
+  Expanded criarBtnsApagar({required String btn}) {
+    return  Expanded(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.black, // Background color
+            onPrimary: Colors.blue, // Text Color (Foreground color)
+          ),
+          onPressed: () {resetar();},
+          child:
+          Text(btn, style: TextStyle(fontSize: 28.0),),
+        ));
+  }
+
 
   Expanded criarBtnsCalcular({required String funcao, required String btn}) {
     return  Expanded(
@@ -99,8 +123,8 @@ class _LogicaCalculadoraState extends State<LogicaCalculadora> {
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        criarBtnsCalcular(funcao: 'Apagar', btn: 'C'),
-                        criarBtnsCalcular(funcao: 'Limpar', btn: 'DEL'),
+                        criarBtnsApagar(btn: 'C',),
+                        criarBtnsApagar(btn: 'DEL'),
                         criarBtnsCalcular(funcao: '%', btn: '%'),
                         criarBtnsCalcular(funcao: '/', btn: '/'),
                       ]),
